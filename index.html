@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Coffre">
+<meta name="theme-color" content="#0f2a2e">
+<meta name="color-scheme" content="dark">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAGTUlEQVR4nO2dwZHWMAxGDcOdCrYBDpSxNVHC1rTtbCMczGRC8stxHEv6JH9vOC0LkeUX2Umc+NvPX78LIa/47h0AwYVyEBHKQUQoBxGhHESEchARykFEKAcRoRxEhHIQEcpBRCgHEaEcRIRyEBHKQUQoBxGhHESEchARykFEKAcRoRxEhHIQEcpBRCgHEaEcRIRyEBHKQUR+eAfgxueft/5ffv/40osElm+LvEh9S4UeVtAlsxzThZDIKkpCOcycOJPMkjxyODpxJoclGeSA0mJPdEViy/FEi1s9Z3YgKKLKMdBbEzvJ9+hmxJMD7f4EWjwTCSZHZ0+49AFybGOEkaMn9SB5DxRqmxhyXKYbMNcRYz6ALodZircDze2z0IpAP5VtZ/b94ws5s5XLIGFv0hRkOS7NMIvkOUH9QHxkn0mLjRq21LT6c7SmwVWOlGZsxCohWHI0shNihtFDuyFQfgDJ0TZD+if1j1pQg1wGFsIPFDnG8rj9FU5CS/dVMb4fEHKMmZEAcD/85ZCy0DnJQCsed2+mNZrp3iJ/OV6Su2CcwWyv8+3zlyfHQKaUbn4bhzErG7PwrBzuZTMEjllyk6Mx1Rj43xBmHs+rF9rkA2vOgTn0WgKVAR85NAZX3+IxcdLz8n9waZTDhBRt2oUJQpawhhUChbUcCCdECBAGF1M5aMYt3P3gsEJE7ORg2RjAt3h4Vg6a0UP+2+e8U95JZ6Js8ulWOc4nxOICNVaOeRUPCzn6ex1zzZ82Y602SJRP5bhchL2OIvuWNhb+uBQP9dvndy9SDslSiQmDuy21v9xzkONuIvIpcshJfwPHkjkM6E2wfZsTjzLgL+PoyvHwU1rIiXvIrNapnjbWleNuRlIqMn2pmBKIL1KfUU3Ksm/NXKIoB/hEoSc8zJffD3z+eVOK0HRYAcly6BmuZQ5Br1b0uKsFiNAurCUHzbiFlhyAdXtKSJhDklJIdpUD5EXFfhrPjX39MMvkEsOKRl8C1o/p5JdjrBd7lpuk9yO5HNr9l9uP5HKMwVVqFRU5jJ8s94fRw91QXbyx0ZeV45o1y0ahHAc4oOxJK4dlp2YVKK0cA7BsHKAcRMRtsQ/aLjW+ZQMtGxVWjn9gPlHzhXL8x6YIRSmOwwryUgl7MzCzwcpBRCgHEUkrh2WhxhwUnpNWDvIcykFEVOQAuQ9tU+1BViNohMHKQUSSy6F9WmedilaSy1E0+y+3GWUFOYpOL6Y3o7h/wdiMuX0Z7gWtMbTkADyxZoWUuGkHlhhWNpS2UcrKWnKUZ727lBkFYb8Vewa+M4bzaTLLHCqu53j/+AKx4SU9GwaCCNFGL8gYH4zT++xV8TBAtTkTgdjjrf37yOVnGNiP4e/RlePJ+ZFViz3P27ji56079xIIyqFFsOcAd01wpr+99rsmqFeOW1sCrGZGebYFgHaKgPay38g3jrTpaa/L0GMhR39Pr6bFnrttN0iU24QU5Os/aLjvQr3HSA52/Fxs8ul5KQt7CQeFY5acv2BMP9r47vEOehOMIOC/3wqLh4Rv2Sgge7zRjzPuZpQoj+z72XJqnEev46riMOfQKx6OPdSzdKgfhLJRoPay5+BSATGjoF2tPPHDvbBPKR5QZ4ibHFIXQmXHGKntXrp7Vo6JbXYvG4ejT1TcsUXOwwrU5KMup3A8+vmHvq5jzTk2bvUQSNk4xDDWBCj85WhMPjBTNpdGM91d95ejdC8pbf+Ceyo3+osH+PtU6guM+3HPlLFn7u29BKJyVJ7Uj3Dgm1Gg5ChXfuRQpN0QHDMKmhxl6N2NQFwuuzeLpAfEp7I1R1Ie68/R8nhJLC0qcJVjI1MJiWhGQZajdPiBr8hlkLBmFKhL2QaYW6C1iRjzgRhylL5xBCTdgUJtE0aOSuc4AvKx+peE0KISTI5ycypq0BNo8UwknhyVgamoxvIRl6ObEVWOypOrlVu9ZXYgKGLLUYG9oI2rRSWDHBUoRaJrUckjx4ajJTmc2Egox4aZJcmc2Mgsx57pomQVYs8qcpxJfH9iFuvKQS6BfipLfKEcRIRyEBHKQUQoBxGhHESEchARykFEKAcRoRxEhHIQEcpBRCgHEaEcRIRyEBHKQUQoBxGhHESEchARykFEKAcRoRxEhHIQEcpBRCgHEaEcROQvyUQGVwnCJN0AAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,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">
+<title>Coffre</title>
+<style>
+:root{
+  --petrol:#0f2a2e; --petrol2:#173a3f; --line:#2b5459;
+  --text:#eaf2ef; --muted:#92acaa; --brass:#c9a24b; --danger:#e27a68;
+  --sat:env(safe-area-inset-top,0px); --sab:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0;background:var(--petrol);color:var(--text);
+  font:17px/1.4 -apple-system,system-ui,sans-serif;overscroll-behavior:none;
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;overflow:hidden}
+button{font:inherit;color:inherit}
+.serif{font-family:ui-serif,"New York",Georgia,serif}
+
+/* ---------- Écran de code ---------- */
+#lock{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:calc(var(--sat) + 16px) 24px calc(var(--sab) + 16px)}
+#lockTitle{font-size:32px;margin:0 0 6px;font-weight:600;letter-spacing:.2px;text-align:center}
+#lockSub{min-height:46px;margin:0 0 18px;color:var(--muted);text-align:center;font-size:15px;max-width:300px}
+#lockSub.err{color:var(--danger)}
+.dots{display:flex;gap:14px;margin-bottom:28px}
+.dot{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--brass);transition:background .12s}
+.dot.on{background:var(--brass)}
+.dots.shake{animation:shake .35s}
+@keyframes shake{20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+.pad{display:grid;grid-template-columns:repeat(3,76px);gap:14px 22px}
+.key{width:76px;height:76px;border-radius:50%;border:1px solid var(--line);background:var(--petrol2);
+  font-size:30px;display:flex;align-items:center;justify-content:center;padding:0}
+.key:active{background:var(--line)}
+.key.ghost{background:none;border-color:transparent}
+.key.back{font-size:24px;color:var(--muted)}
+#forgot{margin-top:26px;background:none;border:0;color:var(--muted);font-size:15px;padding:10px;text-decoration:underline}
+
+/* ---------- Coffre ---------- */
+#vault{position:fixed;inset:0;display:flex;flex-direction:column}
+.head{padding:calc(var(--sat) + 12px) 16px 10px;border-bottom:1px solid var(--line);background:var(--petrol)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.head h1{margin:0;font-size:28px;font-weight:600}
+.count{color:var(--muted);font-size:14px}
+.tools{display:flex;gap:10px;margin-top:12px}
+.btn{border:1px solid var(--line);background:transparent;border-radius:12px;padding:10px 16px;font-size:16px}
+.btn:active{background:var(--petrol2)}
+.btn.primary{background:var(--brass);border-color:var(--brass);color:#1b1405;font-weight:600;flex:1}
+.btn.danger{color:var(--danger)}
+.btn:disabled{opacity:.4}
+.scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--sab) + 90px)}
+#grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.cell{position:relative;aspect-ratio:1;overflow:hidden;background:var(--petrol2)}
+.cell img{width:100%;height:100%;object-fit:cover;display:block;-webkit-user-drag:none}
+.cell .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px}
+.cell .chk{position:absolute;right:6px;bottom:6px;width:24px;height:24px;border-radius:50%;
+  border:2px solid #fff;background:rgba(0,0,0,.25);display:none;align-items:center;justify-content:center;font-size:14px;color:#1b1405}
+.selecting .cell .chk{display:flex}
+.cell.sel img{opacity:.55}
+.cell.sel .chk{background:var(--brass);border-color:var(--brass)}
+#empty{padding:56px 28px;text-align:center;color:var(--muted)}
+#empty h2{color:var(--text);font-size:22px;margin:0 0 10px;font-weight:600}
+#empty p{margin:0 auto 10px;max-width:320px;font-size:15px}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;padding:12px 16px calc(var(--sab) + 12px);
+  background:var(--petrol2);border-top:1px solid var(--line)}
+.bar .btn{flex:1}
+
+/* ---------- Visionneuse ---------- */
+#viewer{position:fixed;inset:0;background:#07171a;display:flex;flex-direction:column;z-index:20}
+#viewer .top{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:calc(var(--sat) + 10px) 12px 10px}
+#viewer .top .btn{padding:8px 14px;font-size:15px}
+#vpos{color:var(--muted);font-size:14px}
+#vstage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+#vimg,#vvid{max-width:100%;max-height:100%;object-fit:contain}
+.vnav{display:flex;gap:10px;padding:8px 12px calc(var(--sab) + 10px)}
+.vnav .btn{flex:1;font-size:15px;padding:9px}
+.badge{position:absolute;left:6px;bottom:6px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;padding:2px 7px;border-radius:8px}
+#shareReady{position:fixed;left:16px;right:16px;bottom:calc(var(--sab) + 84px);z-index:45;background:var(--petrol2);
+  border:1px solid var(--brass);border-radius:14px;padding:14px 16px;font-size:15px}
+#shareReady .tools{margin-top:10px}
+#vload{color:var(--muted)}
+
+/* ---------- Messages ---------- */
+#toast,#progress{position:fixed;left:16px;right:16px;bottom:calc(var(--sab) + 84px);z-index:40;
+  background:var(--petrol2);border:1px solid var(--brass);border-radius:14px;padding:12px 16px;font-size:15px}
+#cover{position:fixed;inset:0;background:var(--petrol);z-index:100}
+@media (prefers-reduced-motion:reduce){.dots.shake{animation:none}}
+</style>
+</head>
+<body>
+
+<section id="lock">
+  <h1 id="lockTitle" class="serif">Coffre</h1>
+  <p id="lockSub"></p>
+  <div class="dots" id="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="pad" id="pad"></div>
+  <button id="forgot" hidden>Code oublié ?</button>
+</section>
+
+<section id="vault" hidden>
+  <div class="head">
+    <div class="row">
+      <div>
+        <h1 class="serif">Coffre</h1>
+        <div class="count" id="count"></div>
+      </div>
+      <button class="btn" id="lockBtn">Verrouiller</button>
+    </div>
+    <div class="tools">
+      <button class="btn primary" id="addBtn">Ajouter photos et vidéos</button>
+      <button class="btn" id="selBtn">Sélectionner</button>
+    </div>
+  </div>
+  <div class="scroll" id="scroller">
+    <div id="empty" hidden>
+      <h2 class="serif">Le coffre est vide</h2>
+      <p>Touche « Ajouter photos et vidéos » pour les importer depuis ta galerie. Elles sont chiffrées sur ton iPhone.</p>
+      <p>Après l'import, supprime les originaux dans l'app Photos, puis dans « Supprimés récemment » : ils restent visibles tant que tu ne le fais pas.</p>
+      <p>Les éléments n'existent que sur cet iPhone. Exporte-les de temps en temps pour avoir une copie. Vidéos : 300 Mo maximum chacune.</p>
+    </div>
+    <div id="grid"></div>
+  </div>
+  <div class="bar" id="selBar" hidden>
+    <button class="btn" id="expSel">Exporter</button>
+    <button class="btn danger" id="delSel">Supprimer</button>
+  </div>
+</section>
+
+<section id="viewer" hidden>
+  <div class="top">
+    <button class="btn" id="vClose">Fermer</button>
+    <span id="vpos"></span>
+    <span style="display:flex;gap:8px">
+      <button class="btn" id="vExp">Exporter</button>
+      <button class="btn danger" id="vDel">Supprimer</button>
+    </span>
+  </div>
+  <div id="vstage"><span id="vload">Déchiffrement…</span><img id="vimg" alt="" hidden><video id="vvid" controls playsinline hidden></video></div>
+  <div class="vnav"><button class="btn" id="vPrev">‹ Précédent</button><button class="btn" id="vNext">Suivant ›</button></div>
+</section>
+
+<div id="toast" hidden></div>
+<div id="shareReady" hidden><div id="shareMsg">Prêt à partager.</div><div class="tools"><button class="btn primary" id="shareGo">Partager</button><button class="btn" id="shareNo">Annuler</button></div></div>
+<div id="progress" hidden></div>
+<div id="cover" hidden></div>
+<input type="file" id="file" accept="image/*,video/*" multiple hidden>
+
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const enc = new TextEncoder();
+const PIN_LEN = 6;
+const ITER = 310000;
+const MAX_VIDEO = 300 * 1024 * 1024; // taille max par vidéo
+const CH = 4 * 1024 * 1024;          // taille d'un morceau chiffré
+
+/* ============ Base de données locale (IndexedDB) ============ */
+let dbp = null;
+function openDB(){
+  if (dbp) return dbp;
+  dbp = new Promise((res, rej) => {
+    const r = indexedDB.open('coffre', 2);
+    r.onupgradeneeded = () => {
+      const d = r.result;
+      if (!d.objectStoreNames.contains('meta')) d.createObjectStore('meta');
+      if (!d.objectStoreNames.contains('photos')) d.createObjectStore('photos', { keyPath: 'id' });
+      if (!d.objectStoreNames.contains('thumbs')) d.createObjectStore('thumbs', { keyPath: 'id' });
+      if (!d.objectStoreNames.contains('chunks')) d.createObjectStore('chunks', { keyPath: 'k' }).createIndex('byId', 'id');
+    };
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+  return dbp;
+}
+const req = r => new Promise((res, rej) => { r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+const done = t => new Promise((res, rej) => { t.oncomplete = () => res(); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error); });
+async function dbGet(store, key){ const db = await openDB(); return req(db.transaction(store).objectStore(store).get(key)); }
+async function dbAll(store){ const db = await openDB(); return req(db.transaction(store).objectStore(store).getAll()); }
+async function dbPutMeta(key, val){ const db = await openDB(); const t = db.transaction('meta', 'readwrite'); t.objectStore('meta').put(val, key); return done(t); }
+async function dbAddPhoto(full, thumb){
+  const db = await openDB(); const t = db.transaction(['photos', 'thumbs'], 'readwrite');
+  t.objectStore('photos').put(full); t.objectStore('thumbs').put(thumb); return done(t);
+}
+async function dbPutChunk(rec){ const db = await openDB(); const t = db.transaction('chunks', 'readwrite'); t.objectStore('chunks').put(rec); return done(t); }
+async function dbDelete(ids){
+  const db = await openDB(); const t = db.transaction(['photos', 'thumbs', 'chunks'], 'readwrite');
+  const ch = t.objectStore('chunks'), idx = ch.index('byId');
+  ids.forEach(id => {
+    t.objectStore('photos').delete(id); t.objectStore('thumbs').delete(id);
+    const c = idx.openKeyCursor(IDBKeyRange.only(id));
+    c.onsuccess = () => { const cur = c.result; if (cur) { ch.delete(cur.primaryKey); cur.continue(); } };
+  });
+  return done(t);
+}
+async function dbClear(){
+  const db = await openDB(); const t = db.transaction(['meta', 'photos', 'thumbs', 'chunks'], 'readwrite');
+  ['meta', 'photos', 'thumbs', 'chunks'].forEach(s => t.objectStore(s).clear()); return done(t);
+}
+
+/* ============ Chiffrement (AES-GCM 256, clé dérivée du code par PBKDF2) ============ */
+async function deriveKey(pin, salt){
+  const base = await crypto.subtle.importKey('raw', enc.encode(pin), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt, iterations: ITER, hash: 'SHA-256' },
+    base, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+}
+async function encrypt(key, data){
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, data);
+  return { iv, ct };
+}
+const decrypt = (key, iv, ct) => crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ct);
+
+/* ============ État ============ */
+let key = null, items = [], selecting = false, picking = false, importing = false;
+const selected = new Set();
+const cells = new Map();
+let viewerIndex = -1, viewerUrl = null, viewerToken = 0, viewerBlob = null, viewerRec = null;
+
+/* ============ Messages ============ */
+let toastTimer = null;
+function toast(msg, ms = 4500){
+  const t = $('#toast'); t.textContent = msg; t.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, ms);
+}
+$('#toast').addEventListener('click', () => { $('#toast').hidden = true; });
+function setProgress(msg){ const p = $('#progress'); if (msg) { p.textContent = msg; p.hidden = false; } else p.hidden = true; }
+
+/* ============ Écran de code ============ */
+let pin = '', firstPin = '', phase = 'unlock', busy = false, lockTimer = null;
+const LS = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v === null ? d : Number(v); } catch (e) { return d; } },
+  set(k, v){ try { localStorage.setItem(k, String(v)); } catch (e) {} },
+  del(k){ try { localStorage.removeItem(k); } catch (e) {} }
+};
+function lockRemaining(){ return Math.max(0, Math.ceil((LS.get('cf_until', 0) - Date.now()) / 1000)); }
+
+(function buildPad(){
+  const pad = $('#pad');
+  const mk = (label, cls, fn) => {
+    const b = document.createElement('button');
+    b.className = 'key ' + (cls || ''); b.textContent = label; b.type = 'button';
+    if (fn) b.addEventListener('click', fn); else b.disabled = true;
+    pad.appendChild(b);
+  };
+  for (let n = 1; n <= 9; n++) mk(String(n), '', () => press(String(n)));
+  mk('', 'ghost', null);
+  mk('0', '', () => press('0'));
+  mk('⌫', 'back', () => { if (busy) return; pin = pin.slice(0, -1); drawDots(); });
+})();
+
+function drawDots(){
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i < pin.length));
+}
+function renderLock(msg, isErr){
+  const texts = {
+    create: ['Crée ton code', "6 chiffres. Il chiffre tes photos. Si tu l'oublies, elles sont perdues."],
+    confirm: ['Confirme ton code', 'Entre-le une deuxième fois.'],
+    unlock: ['Entre ton code', '']
+  }[phase];
+  $('#lockTitle').textContent = texts[0];
+  const sub = $('#lockSub'); sub.textContent = msg || texts[1]; sub.classList.toggle('err', !!isErr);
+  $('#forgot').hidden = phase !== 'unlock';
+  drawDots();
+  if (isErr) { const d = $('#dots'); d.classList.remove('shake'); void d.offsetWidth; d.classList.add('shake'); }
+}
+function checkLockout(){
+  const r = lockRemaining();
+  clearTimeout(lockTimer); lockTimer = null;
+  if (r > 0) { renderLock(`Trop d'essais. Réessaie dans ${r} s.`, false); lockTimer = setTimeout(checkLockout, 1000); }
+  else renderLock();
+}
+async function initLock(){
+  const salt = await dbGet('meta', 'salt');
+  phase = salt ? 'unlock' : 'create';
+  pin = ''; firstPin = ''; busy = false;
+  renderLock();
+  if (phase === 'unlock') checkLockout();
+}
+function press(d){
+  if (busy || key) return;
+  if (phase === 'unlock' && lockRemaining() > 0) { checkLockout(); return; }
+  if (pin.length >= PIN_LEN) return;
+  pin += d; drawDots();
+  if (pin.length === PIN_LEN) submitPin();
+}
+function failAttempt(){
+  const n = LS.get('cf_fails', 0) + 1; LS.set('cf_fails', n);
+  if (n >= 5) LS.set('cf_until', Date.now() + Math.min(3600, 30 * Math.pow(2, n - 5)) * 1000);
+  pin = '';
+  renderLock('Code incorrect.', true);
+  if (n >= 5) setTimeout(checkLockout, 900);
+}
+async function submitPin(){
+  busy = true;
+  const p = pin;
+  try {
+    if (phase === 'create') { firstPin = p; phase = 'confirm'; pin = ''; renderLock(); return; }
+    if (phase === 'confirm') {
+      if (p !== firstPin) { phase = 'create'; pin = ''; firstPin = ''; renderLock('Les deux codes sont différents. Recommence.', true); return; }
+      $('#lockSub').textContent = 'Création du coffre…';
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      const k = await deriveKey(p, salt);
+      const check = await encrypt(k, enc.encode('coffre-ok'));
+      await dbPutMeta('salt', salt); await dbPutMeta('check', check);
+      key = k; pin = ''; await openVault(); return;
+    }
+    $('#lockSub').textContent = 'Vérification…';
+    const salt = await dbGet('meta', 'salt'), check = await dbGet('meta', 'check');
+    const k = await deriveKey(p, salt);
+    try { await decrypt(k, check.iv, check.ct); } catch (e) { failAttempt(); return; }
+    LS.del('cf_fails'); LS.del('cf_until');
+    key = k; pin = ''; await openVault();
+  } catch (e) {
+    console.error(e); pin = ''; renderLock('Erreur inattendue. Réessaie.', true);
+  } finally { busy = false; }
+}
+$('#forgot').addEventListener('click', async () => {
+  if (!confirm("Il n'existe aucun moyen de récupérer les photos sans le code.\n\nContinuer efface TOUT le coffre pour repartir de zéro.")) return;
+  await dbClear(); LS.del('cf_fails'); LS.del('cf_until'); await initLock();
+});
+
+/* ============ Coffre ============ */
+function show(name){ $('#lock').hidden = name !== 'lock'; $('#vault').hidden = name !== 'vault'; }
+
+async function openVault(){
+  const thumbs = await dbAll('thumbs');
+  items = [];
+  for (const t of thumbs) {
+    let url = null;
+    try {
+      const buf = await decrypt(key, t.iv, t.ct);
+      if (buf.byteLength) url = URL.createObjectURL(new Blob([buf], { type: 'image/jpeg' }));
+    } catch (e) {}
+    items.push({ id: t.id, added: t.added, url, v: !!t.v, dur: t.dur || 0 });
+  }
+  items.sort((a, b) => b.added - a.added);
+  show('vault'); renderGrid();
+  try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
+}
+
+function renderGrid(){
+  const grid = $('#grid'); grid.innerHTML = ''; cells.clear();
+  const frag = document.createDocumentFragment();
+  items.forEach((it, i) => {
+    const c = document.createElement('div'); c.className = 'cell' + (selected.has(it.id) ? ' sel' : '');
+    if (it.url) { const im = document.createElement('img'); im.src = it.url; im.alt = ''; im.draggable = false; c.appendChild(im); }
+    else { const ph = document.createElement('div'); ph.className = 'ph'; ph.textContent = it.v ? 'Vidéo' : 'Photo'; c.appendChild(ph); }
+    if (it.v) { const b = document.createElement('div'); b.className = 'badge'; b.textContent = '▶ ' + fmtDur(it.dur); c.appendChild(b); }
+    const k = document.createElement('div'); k.className = 'chk'; k.textContent = '✓'; c.appendChild(k);
+    c.addEventListener('click', () => {
+      if (selecting) toggleSel(it.id); else openViewer(items.findIndex(x => x.id === it.id));
+    });
+    cells.set(it.id, c); frag.appendChild(c);
+  });
+  grid.appendChild(frag);
+  $('#empty').hidden = items.length > 0;
+  const nv = items.filter(x => x.v).length, np = items.length - nv;
+  const parts = [];
+  if (np) parts.push(`${np} photo${np > 1 ? 's' : ''}`);
+  if (nv) parts.push(`${nv} vidéo${nv > 1 ? 's' : ''}`);
+  $('#count').textContent = parts.join(' et ');
+  $('#selBtn').disabled = items.length === 0;
+  updateSelBar();
+}
+function fmtDur(s){
+  if (!s || !isFinite(s)) return '';
+  const m = Math.floor(s / 60), r = Math.floor(s % 60);
+  return m + ':' + String(r).padStart(2, '0');
+}
+function toggleSel(id){
+  if (selected.has(id)) selected.delete(id); else selected.add(id);
+  const c = cells.get(id); if (c) c.classList.toggle('sel', selected.has(id));
+  updateSelBar();
+}
+function updateSelBar(){
+  $('#selBar').hidden = !selecting;
+  $('#vault').classList.toggle('selecting', selecting);
+  $('#selBtn').textContent = selecting ? 'Annuler' : 'Sélectionner';
+  const n = selected.size;
+  $('#expSel').disabled = n === 0; $('#delSel').disabled = n === 0;
+  $('#expSel').textContent = n ? `Exporter (${n})` : 'Exporter';
+  $('#delSel').textContent = n ? `Supprimer (${n})` : 'Supprimer';
+}
+$('#selBtn').addEventListener('click', () => { selecting = !selecting; selected.clear(); renderGrid(); });
+
+/* ---- Import ---- */
+$('#addBtn').addEventListener('click', () => { if (!key) return; picking = true; $('#file').click(); });
+$('#file').addEventListener('change', async e => {
+  const files = [...e.target.files]; e.target.value = ''; picking = false;
+  await importFiles(files);
+});
+$('#file').addEventListener('cancel', () => { picking = false; });
+
+async function makeThumb(file){
+  const MAX = 420;
+  let src, w, h, cleanup = () => {};
+  try {
+    const bmp = await createImageBitmap(file);
+    src = bmp; w = bmp.width; h = bmp.height; cleanup = () => { if (bmp.close) bmp.close(); };
+  } catch (e) {
+    try {
+      const url = URL.createObjectURL(file);
+      const img = new Image(); img.src = url; await img.decode();
+      src = img; w = img.naturalWidth; h = img.naturalHeight; cleanup = () => URL.revokeObjectURL(url);
+    } catch (e2) { return null; }
+  }
+  const sc = Math.min(1, MAX / Math.max(w, h));
+  const c = document.createElement('canvas');
+  c.width = Math.max(1, Math.round(w * sc)); c.height = Math.max(1, Math.round(h * sc));
+  c.getContext('2d').drawImage(src, 0, 0, c.width, c.height);
+  cleanup();
+  return new Promise(res => c.toBlob(b => res(b), 'image/jpeg', 0.82));
+}
+
+async function videoThumb(file){
+  const url = URL.createObjectURL(file);
+  const v = document.createElement('video');
+  v.muted = true; v.preload = 'metadata'; v.setAttribute('playsinline', ''); v.playsInline = true;
+  let dur = 0;
+  const wait = (ev, ms) => new Promise((res, rej) => {
+    const t = setTimeout(() => rej(new Error('timeout')), ms);
+    v.addEventListener(ev, () => { clearTimeout(t); res(); }, { once: true });
+    v.addEventListener('error', () => { clearTimeout(t); rej(new Error('erreur')); }, { once: true });
+  });
+  try {
+    v.src = url;
+    await wait('loadedmetadata', 8000);
+    dur = isFinite(v.duration) ? v.duration : 0;
+    v.currentTime = Math.min(1, dur / 10 || 0.1);
+    await wait('seeked', 8000);
+    const sc = Math.min(1, 420 / Math.max(v.videoWidth, v.videoHeight));
+    const c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(v.videoWidth * sc)); c.height = Math.max(1, Math.round(v.videoHeight * sc));
+    c.getContext('2d').drawImage(v, 0, 0, c.width, c.height);
+    const blob = await new Promise(res => c.toBlob(b => res(b), 'image/jpeg', 0.82));
+    return { blob, dur };
+  } catch (e) {
+    return { blob: null, dur };
+  } finally {
+    URL.revokeObjectURL(url); v.removeAttribute('src'); try { v.load(); } catch (e) {}
+  }
+}
+
+const newId = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2));
+const isVideo = f => (f.type || '').startsWith('video/') || /\.(mov|mp4|m4v)$/i.test(f.name || '');
+
+async function importVideo(f, id, added, i, total){
+  const n = Math.max(1, Math.ceil(f.size / CH));
+  try {
+    for (let c = 0; c < n; c++) {
+      setProgress(`Vidéo ${i + 1}/${total} : chiffrement ${Math.round(c / n * 100)} %`);
+      const buf = await f.slice(c * CH, (c + 1) * CH).arrayBuffer();
+      const e = await encrypt(key, buf);
+      await dbPutChunk({ k: id + ':' + c, id, iv: e.iv, ct: e.ct });
+    }
+    setProgress(`Vidéo ${i + 1}/${total} : finalisation…`);
+    const vt = await videoThumb(f);
+    const tbuf = vt.blob ? await vt.blob.arrayBuffer() : new ArrayBuffer(0);
+    const th = await encrypt(key, tbuf);
+    await dbAddPhoto(
+      { id, added, type: f.type || 'video/mp4', video: true, n },
+      { id, added, iv: th.iv, ct: th.ct, v: true, dur: vt.dur });
+    items.push({ id, added, url: vt.blob ? URL.createObjectURL(vt.blob) : null, v: true, dur: vt.dur });
+  } catch (e) {
+    try { await dbDelete([id]); } catch (e2) {}
+    throw e;
+  }
+}
+
+async function importFiles(files){
+  if (!key || !files.length) return;
+  importing = true;
+  let wl = null;
+  try { if (navigator.wakeLock) wl = await navigator.wakeLock.request('screen'); } catch (e) {}
+  let ok = 0, failed = false, tooBig = 0;
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i], id = newId(), added = Date.now() + i;
+    try {
+      if (isVideo(f)) {
+        if (f.size > MAX_VIDEO) { tooBig++; continue; }
+        await importVideo(f, id, added, i, files.length);
+      } else {
+        setProgress(`Chiffrement ${i + 1}/${files.length}…`);
+        const buf = await f.arrayBuffer();
+        const full = await encrypt(key, buf);
+        const tb = await makeThumb(f);
+        const tbuf = tb ? await tb.arrayBuffer() : new ArrayBuffer(0);
+        const th = await encrypt(key, tbuf);
+        await dbAddPhoto(
+          { id, added, type: f.type || 'image/jpeg', iv: full.iv, ct: full.ct },
+          { id, added, iv: th.iv, ct: th.ct });
+        items.push({ id, added, url: tb ? URL.createObjectURL(tb) : null, v: false, dur: 0 });
+      }
+      ok++;
+    } catch (e) { console.error(e); failed = true; break; }
+  }
+  importing = false;
+  if (wl) { try { wl.release(); } catch (e) {} }
+  setProgress(null);
+  items.sort((a, b) => b.added - a.added);
+  if (key) renderGrid();
+  if (failed) toast("Import interrompu : fichier illisible ou espace insuffisant.", 8000);
+  else if (tooBig) toast(`${tooBig} vidéo${tooBig > 1 ? 's' : ''} de plus de ${MAX_VIDEO / 1048576} Mo non ajoutée${tooBig > 1 ? 's' : ''}.${ok ? ' Les autres sont dans le coffre.' : ''}`, 9000);
+  else if (ok) toast(`${ok} élément${ok > 1 ? 's' : ''} ajouté${ok > 1 ? 's' : ''}. Supprime maintenant les originaux dans l'app Photos, puis dans « Supprimés récemment ».`, 10000);
+  if (document.hidden) lock();
+}
+
+/* ---- Export ---- */
+async function loadMedia(id, onProg){
+  const rec = await dbGet('photos', id);
+  if (rec.video) {
+    const parts = [];
+    for (let c = 0; c < rec.n; c++) {
+      const ch = await dbGet('chunks', id + ':' + c);
+      parts.push(await decrypt(key, ch.iv, ch.ct));
+      if (onProg) onProg(Math.round((c + 1) / rec.n * 100));
+    }
+    return { rec, blob: new Blob(parts, { type: rec.type || 'video/mp4' }) };
+  }
+  const buf = await decrypt(key, rec.iv, rec.ct);
+  return { rec, blob: new Blob([buf], { type: rec.type || 'image/jpeg' }) };
+}
+function fileFor(rec, blob, k){
+  const type = rec.type || (rec.video ? 'video/mp4' : 'image/jpeg');
+  const ext = rec.video ? (type.includes('quicktime') ? 'mov' : 'mp4') : (type.split('/')[1] || 'jpg').replace('jpeg', 'jpg');
+  return new File([blob], `${rec.video ? 'video' : 'photo'}-${rec.added}-${k}.${ext}`, { type });
+}
+let pendingFiles = null;
+function showShareReady(files){
+  pendingFiles = files;
+  $('#shareMsg').textContent = files.length > 1 ? `${files.length} éléments prêts. Touche Partager, puis « Enregistrer ».` : 'Élément prêt. Touche Partager, puis « Enregistrer ».';
+  $('#shareReady').hidden = false;
+}
+$('#shareGo').addEventListener('click', async () => {
+  const f = pendingFiles; if (!f) return;
+  try { await navigator.share({ files: f }); $('#shareReady').hidden = true; pendingFiles = null; }
+  catch (e) { if (e && e.name === 'AbortError') return; toast("Partage impossible sur cet appareil.", 6000); }
+});
+$('#shareNo').addEventListener('click', () => { $('#shareReady').hidden = true; pendingFiles = null; });
+
+async function shareFiles(files){
+  try {
+    if (navigator.canShare && navigator.canShare({ files })) { await navigator.share({ files }); }
+    else {
+      for (const f of files) {
+        const u = URL.createObjectURL(f);
+        const a = document.createElement('a'); a.href = u; a.download = f.name;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(u), 15000);
+      }
+    }
+  } catch (e) {
+    if (e && e.name === 'AbortError') return;
+    if (e && e.name === 'NotAllowedError') { showShareReady(files); return; }
+    toast('Export impossible. Essaie avec moins d\'éléments à la fois.', 6000);
+  }
+}
+async function exportIds(ids){
+  try {
+    const files = [];
+    for (let k = 0; k < ids.length; k++) {
+      setProgress(`Préparation ${k + 1}/${ids.length}…`);
+      const { rec, blob } = await loadMedia(ids[k], p => setProgress(`Préparation ${k + 1}/${ids.length} : ${p} %`));
+      files.push(fileFor(rec, blob, k + 1));
+    }
+    setProgress(null);
+    await shareFiles(files);
+  } catch (e) { setProgress(null); toast('Export impossible. Essaie avec moins d\'éléments à la fois.', 6000); }
+}
+$('#expSel').addEventListener('click', () => exportIds([...selected]));
+
+/* ---- Suppression ---- */
+async function deleteIds(ids){
+  await dbDelete(ids);
+  const set = new Set(ids);
+  items = items.filter(it => { if (set.has(it.id)) { if (it.url) URL.revokeObjectURL(it.url); return false; } return true; });
+  ids.forEach(id => selected.delete(id));
+}
+$('#delSel').addEventListener('click', async () => {
+  const ids = [...selected]; if (!ids.length) return;
+  if (!confirm(`Supprimer ${ids.length} élément${ids.length > 1 ? 's' : ''} du coffre ? Cette action est définitive.`)) return;
+  await deleteIds(ids); selecting = false; selected.clear(); renderGrid();
+});
+
+/* ============ Visionneuse ============ */
+function clearViewerImage(){
+  const im = $('#vimg'); im.hidden = true; im.removeAttribute('src');
+  const vv = $('#vvid'); try { vv.pause(); } catch (e) {} vv.hidden = true; vv.removeAttribute('src'); try { vv.load(); } catch (e) {}
+  if (viewerUrl) { URL.revokeObjectURL(viewerUrl); viewerUrl = null; }
+  viewerBlob = null; viewerRec = null;
+}
+async function openViewer(i){
+  if (i < 0 || i >= items.length) return;
+  viewerIndex = i; const token = ++viewerToken;
+  const it = items[i];
+  $('#viewer').hidden = false; clearViewerImage();
+  $('#vload').hidden = false; $('#vload').textContent = 'Déchiffrement…';
+  $('#vpos').textContent = `${i + 1} / ${items.length}`;
+  $('#vPrev').disabled = i === 0; $('#vNext').disabled = i === items.length - 1;
+  try {
+    const { rec, blob } = await loadMedia(it.id, p => { if (token === viewerToken && it.v) $('#vload').textContent = `Déchiffrement ${p} %`; });
+    if (token !== viewerToken) return;
+    viewerBlob = blob; viewerRec = rec;
+    viewerUrl = URL.createObjectURL(blob);
+    if (rec.video) { const vv = $('#vvid'); vv.src = viewerUrl; vv.hidden = false; }
+    else { const im = $('#vimg'); im.src = viewerUrl; im.hidden = false; }
+    $('#vload').hidden = true;
+  } catch (e) { if (token === viewerToken) $('#vload').textContent = 'Lecture impossible. Si c\'est une grosse vidéo, ferme et rouvre l\'app.'; }
+}
+function closeViewer(){
+  viewerToken++; viewerIndex = -1; clearViewerImage();
+  $('#viewer').hidden = true; $('#vload').textContent = 'Déchiffrement…';
+}
+$('#vClose').addEventListener('click', closeViewer);
+$('#vExp').addEventListener('click', () => { if (viewerBlob && viewerRec) shareFiles([fileFor(viewerRec, viewerBlob, 1)]); });
+$('#vPrev').addEventListener('click', () => { if (viewerIndex > 0) openViewer(viewerIndex - 1); });
+$('#vNext').addEventListener('click', () => { if (viewerIndex < items.length - 1) openViewer(viewerIndex + 1); });
+$('#vDel').addEventListener('click', async () => {
+  if (viewerIndex < 0) return;
+  if (!confirm('Supprimer cet élément du coffre ? Cette action est définitive.')) return;
+  const id = items[viewerIndex].id; const next = viewerIndex;
+  await deleteIds([id]); renderGrid();
+  if (!items.length) closeViewer(); else openViewer(Math.min(next, items.length - 1));
+});
+let sx = null;
+$('#vstage').addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+$('#vstage').addEventListener('touchend', e => {
+  if (sx === null) return;
+  const dx = e.changedTouches[0].clientX - sx; sx = null;
+  if (Math.abs(dx) < 60) return;
+  if (items[viewerIndex] && items[viewerIndex].v) return;
+  if (dx < 0 && viewerIndex < items.length - 1) openViewer(viewerIndex + 1);
+  else if (dx > 0 && viewerIndex > 0) openViewer(viewerIndex - 1);
+});
+
+/* ============ Verrouillage ============ */
+function lock(){
+  if (!key) return;
+  key = null;
+  closeViewer();
+  items.forEach(i => { if (i.url) URL.revokeObjectURL(i.url); });
+  items = []; selected.clear(); selecting = false; cells.clear(); $('#shareReady').hidden = true; pendingFiles = null;
+  $('#grid').innerHTML = ''; $('#toast').hidden = true; setProgress(null);
+  show('lock'); initLock();
+}
+$('#lockBtn').addEventListener('click', lock);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { $('#cover').hidden = false; if (!picking && !importing) lock(); }
+  else { $('#cover').hidden = true; if (picking) setTimeout(() => { picking = false; }, 2500); }
+});
+window.addEventListener('pagehide', () => { if (!picking && !importing) lock(); });
+
+/* ============ Démarrage ============ */
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+if (!window.crypto || !crypto.subtle || !window.indexedDB) {
+  show('lock'); $('#lockTitle').textContent = 'Navigateur non compatible';
+  $('#lockSub').textContent = "Ouvre cette page dans Safari sur ton iPhone, avec l'adresse en https.";
+} else {
+  show('lock'); initLock();
+}
+})();
+</script>
+</body>
+</html>
